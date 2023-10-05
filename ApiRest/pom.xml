@@ -55,6 +55,14 @@
 			<version>2.1.0</version>
 		</dependency>
 
+
+		<!-- for convert object to json  -->
+
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+		</dependency>
+
 		<!-- for throttling  -->
 
 		<!-- Redisson Starter = Spring Data Redis starter(excluding other clients) and Redisson client -->

@@ -1,0 +1,133 @@
+{
+	"info": {
+		"_postman_id": "34a6b7d5-fa1e-4389-9af6-bac66309aba1",
+		"name": "Message",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "69567"
+	},
+	"item": [
+		{
+			"name": "Send Message Status (2/60s)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "UserId",
+						"value": "1",
+						"type": "text"
+					},
+					{
+						"key": "Notification-Type",
+						"value": "Status",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"message\":\"This is a status message test.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/send",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"send"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send Message News (1/24h)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Notification-Type",
+						"value": "News",
+						"type": "text"
+					},
+					{
+						"key": "UserId",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"message\":\"This is a news message test.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/send",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"send"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send Message Mark (1/12h)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Notification-Type",
+						"value": "Marketing",
+						"type": "text"
+					},
+					{
+						"key": "UserId",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"message\":\"This is a maketing message test.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/send",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"send"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

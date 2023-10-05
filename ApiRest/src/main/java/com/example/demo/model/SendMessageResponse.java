@@ -1,21 +1,39 @@
 package com.example.demo.model;
 
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import java.math.BigDecimal;
-
 public class SendMessageResponse {
 
-    private String type;
+    private Long timestamp;
+    private String status;
+    private String response;
 
-    private String userId;
+    public SendMessageResponse(Long timestamp, String status, String response) {
+        this.timestamp = timestamp;
+        this.status = status;
+        this.response = response;
+    }
 
-    private String message;
+    public Long getTimestamp() {
+        return timestamp;
+    }
 
-    public SendMessageResponse(String type, String userId, String message) {
-        this.type = type;
-        this.userId = userId;
-        this.message = message;
+    public void setTimestamp(Long timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getResponse() {
+        return response;
+    }
+
+    public void setResponse(String response) {
+        this.response = response;
     }
 }

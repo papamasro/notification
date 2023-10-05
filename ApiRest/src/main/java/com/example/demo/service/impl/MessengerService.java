@@ -7,25 +7,14 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class MessengerService implements Messenger {
-
     private static final Logger logger = LoggerFactory.getLogger(MessengerService.class);
 
-
-    public String sendMessenge(String msg) {
-        return "ok";
+    public String sendMessenge(String userId, String message) {
+        logger.info("sending message to user " + userId);
+        String response = "sending message to user " + userId;
+        logger.info("Message sent with status 200 to user " + userId);
+        return response;
     }
 
 
-    class Gateway {
-
-        /* already implemented */
-
-        void send(String userId, String message) {
-            logger.info("sending message to user " + userId);
-
-            System.out.println("sending message to user " + userId);
-
-        }
-
-    }
 }

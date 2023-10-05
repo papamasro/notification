@@ -27,26 +27,8 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public ResponseEntity<String>
     handleValidationExceptions(MissingRequestHeaderException ex) {
-        String error = ex.getMessage(); //TODO: IMPROVE TO SHOW ALL ERRORS, AND RETURN OBJECT WITH MORE INFORMATION
+        String error = ex.getMessage();
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
 
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(UsernameNotFoundException.class)
-    @ResponseBody
-    public ResponseEntity<String>
-    handleValidationExceptions(UsernameNotFoundException ex) {
-        String error = ex.getMessage(); //TODO: IMPROVE TO SHOW ALL ERRORS, AND RETURN OBJECT WITH MORE INFORMATION
-        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
-    }
-
-
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(TooManyRequestException.class)
-    @ResponseBody
-    public ResponseEntity<String>
-    handleValidationExceptions(TooManyRequestException ex) {
-        String error = ex.getMessage(); //TODO: IMPROVE TO SHOW ALL ERRORS, AND RETURN OBJECT WITH MORE INFORMATION
-        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
-    }
 }
