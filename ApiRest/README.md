@@ -72,6 +72,10 @@ response:
 }
 ~~~
 
+You can find a postman collection to use the service in the next link
+
+https://github.com/papamasro/notification/tree/main/Collection
+
 
 Improvements
 ---
@@ -81,5 +85,3 @@ JWT Integration: Implement JWT (JSON Web Tokens) for secure authentication and a
 Builders: Implement builders instead of constructors.
 
 Lombok Integration: Consider integrating Lombok to reduce repetitive code in the project.
-
-Swagger Documentation: you can view it with the basic configuration at: http://localhost:8080/swagger-ui/index.html
