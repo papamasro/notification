@@ -44,21 +44,20 @@ API
 
 Send Message:
 --
-
+~~~
 Method: POST
 
 URL: {{url}}/api/send
 
-Headers:
-
-userId:{{userId}}
-
-Notification-Type:{{type}} (Status/News/Marketing)
+Headers: userId:{{userId}}  (String)
+         Notification-Type:{{type}} (Status/News/Marketing)
 
 (The headers are mandatory; these values are used for the rate limiter.)
 
+~~~
 Request:
 ~~~
+
 {
     "message":"This is a status message test."
 }
@@ -74,8 +73,10 @@ response:
 ~~~
 
 
-Optional Improvements
+Improvements
 ---
+
+JWT Integration: Implement JWT (JSON Web Tokens) for secure authentication and authorization.
 
 Builders: Implement builders instead of constructors.
 

@@ -1,6 +1,7 @@
 package com.example.demo.util;
 
 
+import com.example.demo.service.impl.NotificationService;
 import io.github.bucket4j.Bandwidth;
 import io.github.bucket4j.Bucket;
 import io.github.bucket4j.Bucket4j;
@@ -9,6 +10,8 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
@@ -21,8 +24,11 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Component
 @Order(1)
-public class RateLimitFilter extends OncePerRequestFilter {
+public class RateLimitFilter extends OncePerRequestFilter { //all requests go through this filter, in case you have a problem with the headers look here
     private final Map<String, Bucket> buckets = new ConcurrentHashMap<>();
+
+    private static final Logger logger = LoggerFactory.getLogger(RateLimitFilter.class);
+
     @Override
     public void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String recipient = request.getHeader("UserId");
@@ -41,8 +47,12 @@ public class RateLimitFilter extends OncePerRequestFilter {
                 return Bucket4j.builder().addLimit(limit).build();
             });
             if (bucket.tryConsume(1)) {
+                logger.info("token consumed, sending message to user " + recipient + " and type " + notificationType);
+
                 filterChain.doFilter(request, response);
             } else {
+                logger.info("message blocked for rate limiter to user:" + recipient + " and type " + notificationType);
+
                 response.setStatus(HttpStatus.TOO_MANY_REQUESTS.value());
                 response.getWriter().write("You have exceeded the rate limit for this type of message for this user, try again in a few minutes.");
             }
