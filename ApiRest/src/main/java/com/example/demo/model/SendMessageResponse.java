@@ -4,10 +4,10 @@ package com.example.demo.model;
 public class SendMessageResponse {
 
     private Long timestamp;
-    private String status;
+    private Integer status;
     private String response;
 
-    public SendMessageResponse(Long timestamp, String status, String response) {
+    public SendMessageResponse(Long timestamp, Integer status, String response) {
         this.timestamp = timestamp;
         this.status = status;
         this.response = response;
@@ -21,11 +21,11 @@ public class SendMessageResponse {
         this.timestamp = timestamp;
     }
 
-    public String getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

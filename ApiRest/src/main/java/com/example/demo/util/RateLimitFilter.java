@@ -1,4 +1,4 @@
-package com.example.demo.config;
+package com.example.demo.util;
 
 
 import io.github.bucket4j.Bandwidth;
@@ -24,7 +24,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class RateLimitFilter extends OncePerRequestFilter {
     private final Map<String, Bucket> buckets = new ConcurrentHashMap<>();
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    public void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String recipient = request.getHeader("UserId");
         String notificationType = request.getHeader("Notification-Type");
         if (recipient != null && notificationType != null) {
@@ -34,7 +34,8 @@ public class RateLimitFilter extends OncePerRequestFilter {
                     case "Status" -> Bandwidth.classic(2, Refill.intervally(2, Duration.ofMinutes(1)));
                     case "News" -> Bandwidth.classic(1, Refill.intervally(1, Duration.ofDays(1)));
                     case "Marketing" -> Bandwidth.classic(3, Refill.intervally(3, Duration.ofHours(1)));
-                    default -> Bandwidth.classic(1, Refill.intervally(1, Duration.ofHours(12))); // TODO: ask what happen in this case, without type the default configuration is 1 notification every 12 hs
+                    default -> Bandwidth.classic(1, Refill.intervally(1, Duration.ofHours(12)));
+                    // TODO: ask what happen in this case, without type the default configuration is 1 notification every 12 hs
 
                 };
                 return Bucket4j.builder().addLimit(limit).build();

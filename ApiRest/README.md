@@ -53,7 +53,7 @@ Headers:
 
 userId:{{userId}}
 
-Notification-Type:{{type}}
+Notification-Type:{{type}} (Status/News/Marketing)
 
 (The headers are mandatory; these values are used for the rate limiter.)
 
@@ -68,7 +68,7 @@ response:
 ~~~
 {
     "timestamp": 1696548672126,
-    "status": "200",
+    "status": 200,
     "response": "\"sending message to user 1\""
 }
 ~~~
