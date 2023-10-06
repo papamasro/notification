@@ -1,9 +1,0 @@
-
-o	java:S100/"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•£œùÿÿÿÿ8ûÄŠ™°1
-L
-java:S18742"0Remove this use of "Bucket4j"; it is deprecated.(Ô³G8ÅŠ™°1
-K
-java:S18742"/Remove this use of "builder"; it is deprecated.(Ô³G8ÅŠ™°1
-o	java:S100L"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(– ‘·ùÿÿÿÿ8•ÅŠ™°1
-X	java:S125<"<This block of commented-out lines of code should be removed.(Ó©Ë¿8ÅŠ™°1
-L	java:S106O"+Replace this use of System.out by a logger.(êÇ¶±ÿÿÿÿÿ8¤ÅŠ™°1
