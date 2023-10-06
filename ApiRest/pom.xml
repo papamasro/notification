@@ -63,14 +63,6 @@
 			<artifactId>gson</artifactId>
 		</dependency>
 
-		<!-- for throttling  -->
-
-		<!-- Redisson Starter = Spring Data Redis starter(excluding other clients) and Redisson client -->
-		<dependency>
-			<groupId>org.redisson</groupId>
-			<artifactId>redisson-spring-boot-starter</artifactId>
-			<version>3.17.0</version>
-		</dependency>
 
 		<!-- Bucket4J starter = Bucket4J + JCache -->
 		<dependency>

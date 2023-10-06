@@ -29,7 +29,7 @@ public class MessengerController {
     @ResponseBody
     public ResponseEntity<SendMessageResponse> sendMessage(@RequestHeader("UserId") String userId,  @Valid @RequestBody SendMessageRequest request) {
         String serviceResponse = messengerService.sendMessenge(userId, request.getMessage());
-        SendMessageResponse response = new SendMessageResponse(DateFormatter.getTimeStamp(), request.getMessage(), gson.toJson(serviceResponse));
+        SendMessageResponse response = new SendMessageResponse(DateFormatter.getTimeStamp(), "200", gson.toJson(serviceResponse));
         return ResponseEntity.ok(response);
     }
 

@@ -1,15 +1,25 @@
 package com.example.demo.util;
 
+import com.example.demo.util.DateFormatter;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import java.sql.Timestamp;
 
-public class DateFormatterTest {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+class DateFormatterTest {
 
     @Test
-    public void testGetStringDate() {
+    void testGetStringDate() {
         String dateString = DateFormatter.getStringDate();
 
-        assertNotNull(dateString);
+        assertEquals(true, dateString.matches("\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}.\\d{3}"));
+    }
+
+    @Test
+    void testGetTimeStamp() {
+        Long timestamp = DateFormatter.getTimeStamp();
+
+        assertEquals(true, timestamp > 0);
     }
 }
